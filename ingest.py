@@ -14,7 +14,7 @@ docs =SimpleDirectoryReader("data/wiki_txt").load_data()
 print("Documents loaded:", len(docs))
 
 # chunking
-splitter =SentenceSplitter(chunk_size=512, chunk_overlap=50)
+splitter = SentenceSplitter(chunk_size=200, chunk_overlap=40)
 nodes=splitter.get_nodes_from_documents(docs)
 print("Chunks:", len(nodes))
 
