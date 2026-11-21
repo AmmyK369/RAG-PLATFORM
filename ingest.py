@@ -5,6 +5,7 @@ from llama_index.core.node_parser import SentenceSplitter
 from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
+from qdrant_client.models import PayloadSchemaType
 
 load_dotenv()
 
@@ -33,6 +34,12 @@ client.create_collection(
     collection_name=COLLECTION,
     vectors_config=VectorParams(size=384, distance=Distance.COSINE),
     
+)
+
+client.create_payload_index(
+    collection_name=COLLECTION,
+    field_name="allowed_roles",
+    field_schema=PayloadSchemaType.KEYWORD,
 )
 
 points =[]
