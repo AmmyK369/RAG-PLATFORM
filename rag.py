@@ -111,3 +111,9 @@ def answer(question, role="employee", mode="hybrid_rerank"):
             for i, c in enumerate(chunks)
         ],
     }
+    
+def reload_index():
+    global ALL_CHUNKS, CHUNK_BY_ID, BM25
+    ALL_CHUNKS = load_all_chunks()
+    CHUNK_BY_ID = {c["id"]: c for c in ALL_CHUNKS}
+    BM25 = BM25Okapi([tokenize(c["text"]) for c in ALL_CHUNKS])

@@ -2,3 +2,5 @@
 venv/
 .vscode/
 data/squad/
+feedback.jsonl
+data/uploads/

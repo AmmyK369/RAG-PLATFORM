@@ -20,3 +20,37 @@ Each question: question → turned into a vector → search finds the top-k simi
 
 What is an embedding, in one sentence?
 Ans- it is the data in vector form containing numeric values 
+
+## Challenges
+
+1.Chunks longer than the embedding model's limit. I used 512-token chunks with a 256-token model, so half of each chunk was silently ignored. I spotted it, checked max_seq_length, resized to 200/40, and re-ingested to 1,502 chunks.
+2.Cloud connection failed. The connection kept getting cut. The cause turned out to be that I'd never created a cluster, only an account key. I learned the difference between an account, a cluster endpoint, and an API key.
+3.Vector search returns results even when nothing is relevant. For unanswerable questions it still returned the "least bad" chunks. That's why I added hybrid search, reranking, and a strict "I don't know" prompt.
+4.Qdrant required an index for the role filter. The filter failed with a 400 error until I created a payload index on allowed_roles.
+5.Model names change. My reranker choice was outdated, so I checked the provider's current docs and switched to Rerank 5 Fast, with a fallback so a failed call doesn't crash the system.
+
+## day idk
+- what is least priveldge?
+it means the person should have access to only a part of info required to perfom their job.
+
+-why salary is admin only?
+because employees have diff levels and so different pays and them knowing the actual salaries being given makes it harder for managements to negotiate
+
+- what is default deny?
+it means that documents or anyhting which have no label should not be automatically meant for public access rather it should be denied by default . this way no imp info gets leaked even by mistake.
+
+## block 2 and 3 
+
+- Why hybrid search (BM25 + vector)? What does the reranker do?
+we use exact keyword matching and semantic search for finding similar kewords which results in better retreival of the chunk against the query. combining these 2 methods gives more accirate answers.the reranker then sorts the retrieved chunks to top k chunks most relevant to the query.
+
+- What does the prompt force the AI to do?
+the prompt tells the ai to not make answers up and to say i dont know based on the documnets rather than giving false answers. and aslo tells to cite the sources along with answers
+
+- How do roles work, and what did the leak test prove?
+there are 3 roles on the company level that is engineer admin and employee. the salary band and board info is only available to the admin and likewise all 3 have diff restrictions to the sources which makes the info leakproof. the leak tets proove that least privilledge is being used actively for each role efficiently.
+
+## block 4
+adding fastend api and frontend
+starting with the upload the document pipeline - uploader.py
+the waiter- api.py
