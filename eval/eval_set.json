@@ -1,0 +1,606 @@
+[
+  {
+    "id": "sq0",
+    "question": "When did Germanic tribes cross the Rhine to migrate?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "5th century",
+      "Migration period",
+      "5th century"
+    ]
+  },
+  {
+    "id": "sq1",
+    "question": "Who did the geographic scholars work for? ",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "colonizing empires",
+      "colonizing empires",
+      "colonizing empires"
+    ]
+  },
+  {
+    "id": "sq2",
+    "question": "What other topics can Civil disobedience pertain to?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "cultural traditions, social customs, religious beliefs",
+      "revolutionary civil disobedience",
+      "change cultural traditions, social customs, religious beliefs, etc"
+    ]
+  },
+  {
+    "id": "sq3",
+    "question": "Who was the founder of the Oracle Corporation?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "Larry Ellison",
+      "Larry Ellison",
+      "Larry Ellison"
+    ]
+  },
+  {
+    "id": "sq4",
+    "question": "When did the Cretaceous-Paleogene extinction happen?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "66 million years ago",
+      "515 million years ago",
+      "66 million years ago"
+    ]
+  },
+  {
+    "id": "sq5",
+    "question": "What do gravitational forces act between?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "masses",
+      "masses",
+      "masses"
+    ]
+  },
+  {
+    "id": "sq6",
+    "question": "When did the Rhine stop being the Roman boundary?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "the empire fell",
+      "until the empire fell",
+      "until the empire fell"
+    ]
+  },
+  {
+    "id": "sq7",
+    "question": "Thomas de Maiziere serves what role in the German cabinet?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "Federal Minister of the Interior",
+      "Minister of the Interior",
+      "Federal Minister of the Interior"
+    ]
+  },
+  {
+    "id": "sq8",
+    "question": "What is the name of the river that is completely contained inside Jacksonville?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "The Trout River",
+      "Trout River",
+      "The Trout River"
+    ]
+  },
+  {
+    "id": "sq9",
+    "question": "Lots of tumor cells have fewer of what type of molecule on their surface?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "MHC class I molecules",
+      "MHC class I",
+      "MHC class I molecules"
+    ]
+  },
+  {
+    "id": "sq10",
+    "question": "What was Warsaw's Old Town listed as in 1980?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "a UNESCO World Heritage Site",
+      "UNESCO World Heritage Site",
+      "UNESCO World Heritage Site"
+    ]
+  },
+  {
+    "id": "sq11",
+    "question": "What types of engines are steam engines?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "external combustion",
+      "external combustion",
+      "external combustion engines"
+    ]
+  },
+  {
+    "id": "sq12",
+    "question": "What would be needed to host a larger population?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "agriculture",
+      "agriculture",
+      "agriculture"
+    ]
+  },
+  {
+    "id": "sq13",
+    "question": "Who is required to verify and have existing utility lines marked?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "contractors",
+      "contractors",
+      "contractors"
+    ]
+  },
+  {
+    "id": "sq14",
+    "question": "What kind of system of infection involves inserting a hollow tube into a host cell?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "type III secretion system",
+      "type III secretion system",
+      "type III secretion system"
+    ]
+  },
+  {
+    "id": "sq15",
+    "question": "Where does a canonball dropped from the crow's nest of a ship actually land?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "foot of the mast",
+      "the foot of the mast",
+      "at the foot of the mast"
+    ]
+  },
+  {
+    "id": "sq16",
+    "question": "Who produces a list of requirements for a project, giving an overall view of the project's goals?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "The owner",
+      "The owner",
+      "The owner"
+    ]
+  },
+  {
+    "id": "sq17",
+    "question": "Stable and radioactive isotope studies provide insight into what?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "geochemical evolution of rock units",
+      "geochemical evolution of rock units",
+      "the geochemical evolution of rock units"
+    ]
+  },
+  {
+    "id": "sq18",
+    "question": "For what purpose do organisms make peroxide and superoxide?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "destroy invading microbes",
+      "to destroy invading microbes",
+      "destroy invading microbes"
+    ]
+  },
+  {
+    "id": "sq19",
+    "question": "What Jewish practice did the Yuan ban?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "Kosher butchering",
+      "Kosher butchering"
+    ]
+  },
+  {
+    "id": "sq20",
+    "question": "When many people are arrested, what is a common tactic negotiating?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "solidarity tactics",
+      "solidarity tactics",
+      "solidarity"
+    ]
+  },
+  {
+    "id": "sq21",
+    "question": "Survival needs such as income for food and shelter motivates what type of entrepreneurship? ",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "Necessity-based",
+      "Necessity-based entrepreneurship",
+      "Necessity-based"
+    ]
+  },
+  {
+    "id": "sq22",
+    "question": "How many Medieval Warm Period reconstructions were used?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "14",
+      "Ten",
+      "14"
+    ]
+  },
+  {
+    "id": "sq23",
+    "question": "What principle relates to the formation of faults and the age of the sequences through which they cut? ",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "The principle of cross-cutting relationships",
+      "cross-cutting relationships",
+      "cross-cutting relationships"
+    ]
+  },
+  {
+    "id": "sq24",
+    "question": "According to Ellen Churchill Semple what type of climate was necessary for humans to become fully human?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "temperate",
+      "temperate zone",
+      "the temperate zone"
+    ]
+  },
+  {
+    "id": "sq25",
+    "question": "Who wrote of the Savery water pump in 1751's Philosophical Transactions?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "John Smeaton",
+      "John Smeaton",
+      "John Smeaton"
+    ]
+  },
+  {
+    "id": "sq26",
+    "question": "What event was the worst example of Huguenot persecution?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "St. Bartholomew's Day massacre",
+      "St. Bartholomew's Day massacre",
+      "St. Bartholomew's Day massacre"
+    ]
+  },
+  {
+    "id": "sq27",
+    "question": "When did Galor and Zeria show new information about inequality?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "1993",
+      "1993",
+      "1993"
+    ]
+  },
+  {
+    "id": "sq28",
+    "question": "What is heralded by the sounding of the division bell?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "\"Decision Time\"",
+      "Decision Time",
+      "\"Decision Time\""
+    ]
+  },
+  {
+    "id": "sq29",
+    "question": "Which Treaty protects the freedom of establishment and the freedom to provide services?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "the Treaty on the Functioning of the European Union",
+      "the Treaty on the Functioning of the European Union",
+      "the Treaty on the Functioning of the European Union"
+    ]
+  },
+  {
+    "id": "su0",
+    "question": "How did Celeron handle meeting with New Briton?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su1",
+    "question": "Which sessions had a majority attendance from non-governmental organizations?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su2",
+    "question": "What year were citizens or corporations said to have been able to bring claims against other non state parties?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su3",
+    "question": "What was the first Internet2 Network created with NLR?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su4",
+    "question": "What is the youngest rock to metamorphosize?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su5",
+    "question": "What was one of the allies of Russia in the Great Northern War?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su6",
+    "question": "One in seven of the worlds bird species live where?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su7",
+    "question": "What was the unimportance of the congress?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su8",
+    "question": " Who had no real military power after the Yuan?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su9",
+    "question": "What are jet engines used to supply?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su10",
+    "question": "Why is the theory of evolution so complex?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "su11",
+    "question": "Where was the smallest settlement of Huguenots in Ireland among major cities?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "co0",
+    "question": "How many days of annual earned leave do full-time employees receive?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "18 days"
+    ]
+  },
+  {
+    "id": "co1",
+    "question": "What is the maximum earned leave balance that can be carried forward?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "30 days"
+    ]
+  },
+  {
+    "id": "co2",
+    "question": "Who is the People Operations contact?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "Rhea Malhotra"
+    ]
+  },
+  {
+    "id": "co3",
+    "question": "What are the standard office hours?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "9:30"
+    ]
+  },
+  {
+    "id": "co4",
+    "question": "Where is the registered office of Amara Tech?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "Mohali"
+    ]
+  },
+  {
+    "id": "co5",
+    "question": "What is the rollback objective after a release-related incident?",
+    "role": "engineer",
+    "type": "answerable",
+    "gold": [
+      "15 minutes"
+    ]
+  },
+  {
+    "id": "co6",
+    "question": "On which days are production deployments scheduled?",
+    "role": "engineer",
+    "type": "answerable",
+    "gold": [
+      "Tuesday"
+    ]
+  },
+  {
+    "id": "co7",
+    "question": "What is the minimum password length?",
+    "role": "engineer",
+    "type": "answerable",
+    "gold": [
+      "14 characters"
+    ]
+  },
+  {
+    "id": "co8",
+    "question": "What was Q3 revenue reported to the board?",
+    "role": "admin",
+    "type": "answerable",
+    "gold": [
+      "18.4"
+    ]
+  },
+  {
+    "id": "co9",
+    "question": "What is the base-pay band for a Senior Software Engineer?",
+    "role": "admin",
+    "type": "answerable",
+    "gold": [
+      "14,00,000"
+    ]
+  },
+  {
+    "id": "pa0",
+    "question": "How much paid vacation do I get per year?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "18 days"
+    ]
+  },
+  {
+    "id": "pa1",
+    "question": "How far ahead should I request time off?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "5 working days"
+    ]
+  },
+  {
+    "id": "pa2",
+    "question": "Who do I tell if I am too ill to come in, and by what time?",
+    "role": "employee",
+    "type": "answerable",
+    "gold": [
+      "10:00"
+    ]
+  },
+  {
+    "id": "pa3",
+    "question": "How quickly must a stolen laptop be reported?",
+    "role": "engineer",
+    "type": "answerable",
+    "gold": [
+      "30 minutes"
+    ]
+  },
+  {
+    "id": "pa4",
+    "question": "How much money did the company earn last quarter?",
+    "role": "admin",
+    "type": "answerable",
+    "gold": [
+      "18.4"
+    ]
+  },
+  {
+    "id": "re0",
+    "question": "What is the base-pay band for a Senior Software Engineer?",
+    "role": "employee",
+    "type": "restricted",
+    "gold": []
+  },
+  {
+    "id": "re1",
+    "question": "What is the base-pay band for a Senior Software Engineer?",
+    "role": "engineer",
+    "type": "restricted",
+    "gold": []
+  },
+  {
+    "id": "re2",
+    "question": "What was Q3 revenue reported to the board?",
+    "role": "employee",
+    "type": "restricted",
+    "gold": []
+  },
+  {
+    "id": "re3",
+    "question": "What is the rollback objective after a release-related incident?",
+    "role": "employee",
+    "type": "restricted",
+    "gold": []
+  },
+  {
+    "id": "un0",
+    "question": "Does Amara Tech offer a free gym membership?",
+    "role": "admin",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "un1",
+    "question": "What is the dress code at Amara Tech?",
+    "role": "admin",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "un2",
+    "question": "What is the capital of Mars?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  },
+  {
+    "id": "un3",
+    "question": "Who won the football world cup in 2090?",
+    "role": "employee",
+    "type": "unanswerable",
+    "gold": []
+  }
+]

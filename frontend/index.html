@@ -1,178 +1,284 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Amara Tech Knowledge Assistant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amara Tech assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <style>
-  body { font-family: system-ui, sans-serif; background: #f4f5f7; margin: 0; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 16px; }
-  .card { background: #fff; border-radius: 10px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
-  input, button { font-size: 15px; padding: 8px 10px; }
-  button { cursor: pointer; border: 1px solid #888; background: #fff; border-radius: 6px; }
-  button.primary { background: #2563eb; color: #fff; border-color: #2563eb; }
-  .header { display: flex; justify-content: space-between; align-items: center; }
-  .msg { padding: 10px 12px; border-radius: 8px; margin: 8px 0; white-space: pre-wrap; }
-  .user { background: #dbeafe; text-align: right; }
-  .bot { background: #f1f5f9; }
-  .src { font-size: 13px; color: #475569; margin-top: 6px; }
-  .tabs button { margin-right: 6px; }
-  .tabs button.active { background: #2563eb; color: #fff; }
-  .error { color: #b91c1c; }
+:root{--ink:#1a0b36;--glow:#4b23a0;--tang:#ff7a3d;--pink:#ff4f9a;--mint:#3ee6b0;--lemon:#ffe14d;--text:#fff7ec;--spring:cubic-bezier(.34,1.56,.64,1)}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:radial-gradient(1200px 700px at 10% -10%,var(--glow),transparent 60%),var(--ink);overflow:hidden}
+h1,h2,h3,.display{font-family:'Fredoka','DM Sans',system-ui,sans-serif;margin:0}
+.blob{position:fixed;border-radius:50%;filter:blur(70px);pointer-events:none;animation:drift 20s ease-in-out infinite alternate}
+.b1{width:380px;height:380px;background:var(--pink);top:-90px;right:-60px;opacity:.5}
+.b2{width:320px;height:320px;background:var(--mint);bottom:-100px;left:-80px;opacity:.35;animation-duration:26s}
+.b3{width:240px;height:240px;background:var(--tang);top:40%;left:58%;opacity:.28;animation-duration:32s}
+@keyframes drift{to{transform:translate(60px,-50px) scale(1.15)}}
+.app{position:relative;height:100%;display:flex;flex-direction:column;gap:12px;max-width:820px;margin:0 auto;padding:14px}
+.top{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:24px;background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);flex-wrap:wrap}
+.orb{width:44px;height:44px;border-radius:50%;flex:none;position:relative;background:radial-gradient(circle at 30% 30%,var(--lemon),var(--tang) 55%,var(--pink));animation:float 3.2s ease-in-out infinite}
+.orb::before,.orb::after{content:"";position:absolute;top:40%;width:7px;height:10px;border-radius:50%;background:var(--ink);animation:blink 4s infinite}
+.orb::before{left:28%}.orb::after{right:28%}
+.orb.big{width:96px;height:96px}.orb.big::before,.orb.big::after{width:14px;height:20px}
+.orb.think{animation:hop .55s var(--spring) infinite alternate}
+@keyframes float{50%{transform:translateY(-6px)}}
+@keyframes hop{to{transform:translateY(-12px) scaleY(1.07)}}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.feed{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding:6px 4px}
+.bub{max-width:84%;padding:12px 16px;border-radius:22px;line-height:1.55;white-space:pre-wrap;animation:pop .5s var(--spring) both}
+.me{align-self:flex-end;background:linear-gradient(135deg,var(--tang),var(--pink));border-bottom-right-radius:6px;transform-origin:100% 100%;color:#2a0a1c;font-weight:500}
+.bot{align-self:flex-start;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-bottom-left-radius:6px;transform-origin:0 100%}
+@keyframes pop{from{opacity:0;transform:scale(.6) translateY(24px)}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{background:rgba(62,230,176,.16);color:var(--mint);border:1px solid rgba(62,230,176,.45);padding:3px 11px;border-radius:99px;font-size:13px;animation:pop .45s var(--spring) both}
+.fb{display:flex;gap:8px;margin-top:10px;position:relative}
+.btn{font:inherit;cursor:pointer;border:0;border-radius:99px;padding:9px 18px;font-weight:700;color:var(--ink);background:var(--lemon);transition:transform .25s var(--spring)}
+.btn:hover{transform:translateY(-3px) rotate(-2deg)}.btn:active{transform:scale(.9)}
+.btn.ghost{background:rgba(255,255,255,.12);color:var(--text)}
+.btn:disabled{opacity:.55;cursor:default;transform:none}
+.btn:focus-visible,.s:focus-visible,.pill:focus-visible,.persona:focus-visible,.drop:focus-within,input:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.emo{position:absolute;left:14px;top:0;pointer-events:none;animation:fly .9s ease-out forwards}
+@keyframes fly{to{transform:translate(var(--dx),var(--dy)) scale(1.5) rotate(40deg);opacity:0}}
+.composer{display:flex;gap:10px;padding:8px 8px 8px 16px;border-radius:28px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+.composer input{flex:1;background:transparent;border:0;color:var(--text);font:inherit;font-size:16px;min-width:0}
+.composer input::placeholder{color:rgba(255,247,236,.55)}
+.sugg{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.s{font:inherit;cursor:pointer;color:var(--text);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:10px 14px;transition:transform .3s var(--spring),background .2s}
+.s:hover{transform:translateY(-4px) rotate(-1.5deg);background:rgba(255,255,255,.2)}
+.dots span{display:inline-block;width:9px;height:9px;margin:3px;border-radius:50%;background:var(--lemon);animation:bounce .6s var(--spring) infinite alternate}
+.dots span:nth-child(2){animation-delay:.15s;background:var(--mint)}.dots span:nth-child(3){animation-delay:.3s;background:var(--pink)}
+@keyframes bounce{to{transform:translateY(-9px)}}
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.persona{font:inherit;cursor:pointer;text-align:left;color:var(--ink);border:0;border-radius:28px;padding:20px;background:var(--c);transition:transform .35s var(--spring);animation:pop .6s var(--spring) both}
+.persona:hover{transform:translateY(-8px) rotate(-2deg) scale(1.03)}.persona:disabled{opacity:.6}
+.panel{padding:20px;border-radius:26px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);animation:pop .5s var(--spring) both}
+.drop{display:block;cursor:pointer;text-align:center;padding:30px;border:2px dashed rgba(255,255,255,.35);border-radius:22px;transition:transform .3s var(--spring),border-color .2s}
+.drop:hover{transform:scale(1.02) rotate(-.5deg);border-color:var(--mint)}
+.pill{font:inherit;cursor:pointer;color:var(--text);background:transparent;border:2px solid rgba(255,255,255,.3);border-radius:99px;padding:8px 16px;transition:transform .25s var(--spring)}
+.pill.on{background:var(--mint);color:var(--ink);border-color:var(--mint);font-weight:700}.pill:active{transform:scale(.9)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
 <div id="root"></div>
 <script type="text/babel">
 const { useState, useRef, useEffect } = React;
 
-async function api(path, options = {}, token) {
-  const headers = { ...(options.headers || {}) };
-  if (token) headers["Authorization"] = "Bearer " + token;
-  const res = await fetch(path, { ...options, headers });
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.detail || "Request failed");
-  return data;
+async function api(path, opts = {}, token) {
+  const h = { ...(opts.headers || {}) };
+  if (token) h.Authorization = "Bearer " + token;
+  const r = await fetch(path, { ...opts, headers: h });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d.detail || "Something went wrong");
+  return d;
 }
-const JSON_HEADERS = { "Content-Type": "application/json" };
+const JH = { "Content-Type": "application/json" };
+
+// Demo shortcut: these cards log in with the demo users; the server still checks the password and decides the role.
+const PEOPLE = [
+  { u: "emma", p: "emma123", name: "Emma", role: "employee", c: "var(--tang)", line: "Leave, office rules and everyday questions" },
+  { u: "ethan", p: "ethan123", name: "Ethan", role: "engineer", c: "var(--mint)", line: "Plus engineering and security policies" },
+  { u: "alice", p: "alice123", name: "Alice", role: "admin", c: "var(--pink)", line: "Everything, plus document uploads" },
+];
+const ASK = {
+  employee: ["How many days of annual earned leave do I get?", "What are the office hours?", "Who is the People Operations contact?"],
+  engineer: ["When are production deployments allowed?", "How long must passwords be?", "What is the rollback objective?"],
+  admin: ["What is the salary band for a Senior Software Engineer?", "What was Q3 revenue?", "Who attended the board meeting?"],
+};
+
+const Orb = ({ big, think }) => <div className={"orb" + (big ? " big" : "") + (think ? " think" : "")} />;
 
 function Login({ onLogin }) {
-  const [username, setUsername] = useState("emma");
-  const [password, setPassword] = useState("emma123");
-  const [error, setError] = useState("");
-  async function submit() {
+  const [err, setErr] = useState("");
+  const [busy, setBusy] = useState("");
+  async function go(p) {
+    setBusy(p.u); setErr("");
     try {
-      const data = await api("/login", { method: "POST", headers: JSON_HEADERS,
-        body: JSON.stringify({ username, password }) });
-      onLogin(data);
-    } catch (e) { setError(e.message); }
+      onLogin(await api("/login", { method: "POST", headers: JH, body: JSON.stringify({ username: p.u, password: p.p }) }));
+    } catch (e) { setErr(e.message); setBusy(""); }
   }
   return (
-    <div className="wrap"><div className="card">
-      <h2>Amara Tech Knowledge Assistant</h2>
-      <p>Demo users: emma (employee), ethan (engineer), alice (admin)</p>
-      <input value={username} onChange={e => setUsername(e.target.value)} placeholder="username" />{" "}
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="password" />{" "}
-      <button className="primary" onClick={submit}>Log in</button>
-      {error && <p className="error">{error}</p>}
-    </div></div>
-  );
-}
-
-function Chat({ token }) {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const endRef = useRef(null);
-  useEffect(() => { if (endRef.current) endRef.current.scrollIntoView({ behavior: "smooth" }); }, [messages]);
-
-  async function send() {
-    const q = input.trim();
-    if (!q || loading) return;
-    setInput(""); setLoading(true);
-    setMessages(m => [...m, { who: "user", text: q }]);
-    try {
-      const data = await api("/ask", { method: "POST", headers: JSON_HEADERS,
-        body: JSON.stringify({ question: q }) }, token);
-      setMessages(m => [...m, { who: "bot", text: data.answer, sources: data.sources,
-        id: data.message_id, rating: null }]);
-    } catch (e) {
-      setMessages(m => [...m, { who: "bot", text: "Error: " + e.message, sources: [] }]);
-    }
-    setLoading(false);
-  }
-
-  async function rate(id, rating) {
-    try {
-      await api("/feedback", { method: "POST", headers: JSON_HEADERS,
-        body: JSON.stringify({ message_id: id, rating }) }, token);
-      setMessages(m => m.map(x => x.id === id ? { ...x, rating } : x));
-    } catch (e) { alert(e.message); }
-  }
-
-  return (
-    <div className="card">
-      {messages.length === 0 && <p>Ask a question about your documents.</p>}
-      {messages.map((m, i) => (
-        <div key={i} className={"msg " + m.who}>
-          {m.text}
-          {m.who === "bot" && m.sources && m.sources.length > 0 && (
-            <div className="src">
-              <b>Sources:</b>
-              {m.sources.map(s => <div key={s.n}>[{s.n}] {s.file}</div>)}
-            </div>
-          )}
-          {m.who === "bot" && m.id && (
-            <div style={{ marginTop: 6 }}>
-              <button onClick={() => rate(m.id, "up")} disabled={m.rating !== null}>{m.rating === "up" ? "👍 Thanks" : "👍"}</button>{" "}
-              <button onClick={() => rate(m.id, "down")} disabled={m.rating !== null}>{m.rating === "down" ? "👎 Noted" : "👎"}</button>
-            </div>
-          )}
-        </div>
-      ))}
-      {loading && <p>Thinking...</p>}
-      <div ref={endRef} />
-      <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-        <input style={{ flex: 1 }} value={input} placeholder="Type your question..."
-          onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === "Enter" && send()} />
-        <button className="primary" onClick={send}>Send</button>
+    <div className="app" style={{ justifyContent: "center", gap: 30 }}>
+      <div style={{ textAlign: "center" }}>
+        <Orb big />
+        <h1 className="display" style={{ fontSize: "clamp(32px,6vw,52px)", marginTop: 18 }}>Ask Amara anything</h1>
+        <p style={{ opacity: .85, fontSize: 18, margin: "8px 0 0" }}>Pick who you are. Your role decides which documents I can read for you.</p>
       </div>
+      <div className="who">
+        {PEOPLE.map((p, i) => (
+          <button key={p.u} className="persona" style={{ "--c": p.c, animationDelay: i * 120 + "ms" }} disabled={!!busy} onClick={() => go(p)}>
+            <h3 className="display" style={{ fontSize: 28 }}>{p.name}</h3>
+            <div style={{ fontWeight: 700 }}>{p.role}</div>
+            <div style={{ marginTop: 6, opacity: .85 }}>{p.line}</div>
+          </button>
+        ))}
+      </div>
+      {err && <p style={{ color: "var(--lemon)", textAlign: "center" }}>{err}</p>}
     </div>
   );
 }
 
-function Admin({ token }) {
-  const [file, setFile] = useState(null);
-  const [roles, setRoles] = useState({ employee: true, engineer: true, admin: true });
-  const [status, setStatus] = useState("");
-  async function upload() {
-    if (!file) { setStatus("Choose a file first."); return; }
-    const chosen = Object.keys(roles).filter(r => roles[r]);
-    const form = new FormData();
-    form.append("file", file);
-    form.append("roles", chosen.join(","));
-    setStatus("Uploading and indexing...");
+function Typed({ text, onTick, onDone }) {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const [n, setN] = useState(reduce ? text.length : 0);
+  useEffect(() => {
+    if (n >= text.length) { onDone && onDone(); return; }
+    const t = setTimeout(() => { setN(n + 3); onTick && onTick(); }, 16);
+    return () => clearTimeout(t);
+  }, [n]);
+  return <span>{text.slice(0, n)}</span>;
+}
+
+function Chat({ session, token, busy, setBusy }) {
+  const [msgs, setMsgs] = useState([]);
+  const [q, setQ] = useState("");
+  const [bursts, setBursts] = useState([]);
+  const feed = useRef(null);
+  const down = () => { if (feed.current) feed.current.scrollTop = feed.current.scrollHeight; };
+  useEffect(down, [msgs, busy]);
+
+  async function send(text) {
+    const t = (text || q).trim();
+    if (!t || busy) return;
+    setQ(""); setBusy(true);
+    setMsgs(m => [...m, { who: "me", text: t }]);
     try {
-      const data = await api("/admin/upload", { method: "POST", body: form }, token);
-      setStatus("Done: " + data.chunks_added + " chunks added from " + data.file);
-    } catch (e) { setStatus("Error: " + e.message); }
+      const d = await api("/ask", { method: "POST", headers: JH, body: JSON.stringify({ question: t }) }, token);
+      setMsgs(m => [...m, { who: "bot", text: d.answer, sources: d.sources, id: d.message_id, done: false, rating: null }]);
+    } catch (e) {
+      setMsgs(m => [...m, { who: "bot", text: e.message, sources: [], done: true }]);
+    }
+    setBusy(false);
+  }
+
+  function boom(id, rating) {
+    const set = rating === "up" ? ["🎉", "✨", "💜", "🧡"] : ["💭", "🫧"];
+    const items = Array.from({ length: 6 }, (_, i) => ({
+      k: id + Date.now() + i, id, e: set[i % set.length],
+      dx: (Math.random() * 160 - 80) + "px", dy: -(40 + Math.random() * 80) + "px",
+    }));
+    setBursts(b => [...b, ...items]);
+    setTimeout(() => setBursts(b => b.filter(x => !items.includes(x))), 1000);
+  }
+
+  async function rate(id, rating) {
+    try {
+      await api("/feedback", { method: "POST", headers: JH, body: JSON.stringify({ message_id: id, rating }) }, token);
+      setMsgs(m => m.map(x => x.id === id ? { ...x, rating } : x));
+      boom(id, rating);
+    } catch (e) { alert(e.message); }
+  }
+
+  const name = session.username[0].toUpperCase() + session.username.slice(1);
+  return (
+    <>
+      <div className="feed" ref={feed}>
+        {msgs.length === 0 && (
+          <div style={{ margin: "auto", textAlign: "center", display: "grid", gap: 18, justifyItems: "center" }}>
+            <Orb big />
+            <h2 className="display" style={{ fontSize: 30 }}>Hi {name}! What do you want to know?</h2>
+            <div className="sugg">
+              {ASK[session.role].map((s, i) => (
+                <button key={s} className="s" style={{ animation: "pop .5s var(--spring) " + i * 110 + "ms both" }} onClick={() => send(s)}>{s}</button>
+              ))}
+            </div>
+          </div>
+        )}
+        {msgs.map((m, i) => {
+          const idk = m.who === "bot" && /^i don.t know/i.test(m.text.trim());
+          return (
+            <div key={i} className={"bub " + m.who}>
+              {m.who === "bot" && !m.done
+                ? <Typed text={m.text} onTick={down} onDone={() => setMsgs(all => all.map((x, j) => j === i ? { ...x, done: true } : x))} />
+                : m.text}
+              {m.who === "bot" && m.done && !idk && m.sources && m.sources.length > 0 && (
+                <div className="chips">
+                  {m.sources.map((s, k) => <span key={s.n} className="chip" style={{ animationDelay: k * 90 + "ms" }}>[{s.n}] {s.file}</span>)}
+                </div>
+              )}
+              {m.who === "bot" && m.done && m.id && (
+                <div className="fb">
+                  <button className="btn ghost" disabled={m.rating !== null} onClick={() => rate(m.id, "up")}>{m.rating === "up" ? "👍 Thanks!" : "👍"}</button>
+                  <button className="btn ghost" disabled={m.rating !== null} onClick={() => rate(m.id, "down")}>{m.rating === "down" ? "👎 Noted" : "👎"}</button>
+                  {bursts.filter(b => b.id === m.id).map(b => <span key={b.k} className="emo" style={{ "--dx": b.dx, "--dy": b.dy }}>{b.e}</span>)}
+                </div>
+              )}
+            </div>
+          );
+        })}
+        {busy && <div className="bub bot"><span className="dots"><span /><span /><span /></span></div>}
+      </div>
+      <div className="composer">
+        <input value={q} placeholder="Ask about leave, policies, deployments..." onChange={e => setQ(e.target.value)} onKeyDown={e => e.key === "Enter" && send()} />
+        <button className="btn" disabled={busy} onClick={() => send()}>Send</button>
+      </div>
+    </>
+  );
+}
+
+function Admin({ token }) {
+  const [f, setF] = useState(null);
+  const [roles, setRoles] = useState({ employee: true, engineer: true, admin: true });
+  const [st, setSt] = useState("");
+  async function up() {
+    if (!f) { setSt("Pick a file first."); return; }
+    const c = Object.keys(roles).filter(r => roles[r]);
+    if (!c.length) { setSt("Choose at least one role."); return; }
+    const fd = new FormData();
+    fd.append("file", f); fd.append("roles", c.join(","));
+    setSt("Reading, chunking and indexing...");
+    try {
+      const d = await api("/admin/upload", { method: "POST", body: fd }, token);
+      setSt("Added " + d.chunks_added + " chunks from " + d.file + ". Go ask about it!");
+    } catch (e) { setSt(e.message); }
   }
   return (
-    <div className="card">
-      <h3>Upload a document</h3>
-      <input type="file" accept=".txt,.pdf,.docx" onChange={e => setFile(e.target.files[0])} />
-      <p>Who may see it?</p>
-      {Object.keys(roles).map(r => (
-        <label key={r} style={{ marginRight: 12 }}>
-          <input type="checkbox" checked={roles[r]}
-            onChange={e => setRoles({ ...roles, [r]: e.target.checked })} /> {r}
-        </label>
-      ))}
-      <p><button className="primary" onClick={upload}>Upload</button></p>
-      <p>{status}</p>
+    <div className="panel" style={{ display: "grid", gap: 18 }}>
+      <h2 className="display">Add a document</h2>
+      <label className="drop">{f ? f.name : "Choose a .txt, .pdf or .docx file"}
+        <input type="file" accept=".txt,.pdf,.docx" hidden onChange={e => setF(e.target.files[0])} />
+      </label>
+      <div>
+        <p style={{ margin: "0 0 8px" }}>Who can read it?</p>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          {Object.keys(roles).map(r => (
+            <button key={r} className={"pill" + (roles[r] ? " on" : "")} onClick={() => setRoles({ ...roles, [r]: !roles[r] })}>{r}</button>
+          ))}
+        </div>
+      </div>
+      <div><button className="btn" onClick={up}>Upload and index</button></div>
+      <p style={{ margin: 0 }} aria-live="polite">{st}</p>
     </div>
   );
 }
 
 function App() {
-  const [session, setSession] = useState(null);
+  const [s, setS] = useState(null);
   const [tab, setTab] = useState("chat");
-  if (!session) return <Login onLogin={setSession} />;
+  const [busy, setBusy] = useState(false);
+  if (!s) return <Login onLogin={setS} />;
   return (
-    <div className="wrap">
-      <div className="card header">
-        <div><b>{session.username}</b> ({session.role})</div>
-        <div className="tabs">
-          <button className={tab === "chat" ? "active" : ""} onClick={() => setTab("chat")}>Chat</button>
-          {session.role === "admin" &&
-            <button className={tab === "admin" ? "active" : ""} onClick={() => setTab("admin")}>Admin</button>}
-          <button onClick={() => { setSession(null); setTab("chat"); }}>Log out</button>
+    <div className="app">
+      <header className="top">
+        <Orb think={busy} />
+        <div style={{ flex: 1 }}>
+          <h1 className="display" style={{ fontSize: 22 }}>Amara Tech assistant</h1>
+          <span style={{ opacity: .75, fontSize: 14 }}>{s.username} is signed in as {s.role}</span>
         </div>
+        <button className={"btn" + (tab === "chat" ? "" : " ghost")} onClick={() => setTab("chat")}>Chat</button>
+        {s.role === "admin" && <button className={"btn" + (tab === "admin" ? "" : " ghost")} onClick={() => setTab("admin")}>Admin</button>}
+        <button className="btn ghost" onClick={() => { setS(null); setTab("chat"); }}>Log out</button>
+      </header>
+      <div style={{ display: tab === "chat" ? "flex" : "none", flexDirection: "column", gap: 12, flex: 1, minHeight: 0 }}>
+        <Chat session={s} token={s.token} busy={busy} setBusy={setBusy} />
       </div>
-      <div style={{ display: tab === "chat" ? "block" : "none" }}><Chat token={session.token} /></div>
-      {tab === "admin" && <Admin token={session.token} />}
+      {tab === "admin" && <Admin token={s.token} />}
     </div>
   );
 }

@@ -54,3 +54,29 @@ there are 3 roles on the company level that is engineer admin and employee. the 
 adding fastend api and frontend
 starting with the upload the document pipeline - uploader.py
 the waiter- api.py
+
+## block 5
+evaluation
+
+build_evail.py - is hybrid really good?
+results:
+Mode	Hit@5	Questions missed (out of 40)
+vector	98%	1 (sq1)
+hybrid	95%	2 (sq11, sq19)
+hybrid + rerank	100%	0
+
+catch here: the language was too easy lexicographically.hit@5 is very lineant.
+
+ On my test set the retrieval was near ceiling. Hybrid alone didn't beat vector, and the reranker recovered the misses. I recognised the questions were too lexically easy, so I added paraphrased questions and ranking-sensitive metrics to separate the methods.
+
+## Fixes
+
+Add paraphrased questions.
+
+improved results:
+Mode	Hit@1	Hit@5	MRR
+vector	80% (36/45)	96% (43/45)	0.85
+hybrid	76% (34/45)	96% (43/45)	0.83
+hybrid + rerank	91% (41/45)	100% (45/45)	0.95
+
+I compared vector, hybrid and hybrid plus rerank on 45 questions. Reranking gave the biggest gain: hit@1 went from about 80% to 91%, and MRR from about 0.84 to 0.95. Hybrid alone didn't beat vector overall, but it missed different questions, which is why it's a good candidate pool for the reranker. The sample is small, so I treat the differences as directional.

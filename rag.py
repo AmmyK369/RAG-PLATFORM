@@ -5,6 +5,7 @@ from qdrant_client import QdrantClient, models
 from rank_bm25 import BM25Okapi
 import cohere
 from groq import Groq
+from langsmith import traceable
 
 load_dotenv()
 COLLECTION = "docs"
@@ -75,6 +76,7 @@ def rerank(question, ids, top_n=5):
         print("Rerank failed, using fused order instead:", e)
         return ids[:top_n]
     
+@traceable(name="retreive", run_type="chain")
 def retrieve(question, role="employee", mode="hybrid_rerank", top_n=5):
     vec_ids = vector_search(question, role)
     if mode == "vector":
@@ -90,7 +92,7 @@ Rules:
 - If the passages do not contain the answer, reply exactly: I don't know based on the available documents.
 - Never use outside knowledge."""
 
-
+@traceable(name="answer", run_type="chain")
 def answer(question, role="employee", mode="hybrid_rerank"):
     chunks = retrieve(question, role, mode)
     context = "\n\n".join(
@@ -106,6 +108,7 @@ def answer(question, role="employee", mode="hybrid_rerank"):
     )
     return {
         "answer": resp.choices[0].message.content,
+        "contexts": [c["text"] for c in chunks],
         "sources": [
             {"n": i + 1, "file": c["file_name"], "text": c["text"][:200]}
             for i, c in enumerate(chunks)
