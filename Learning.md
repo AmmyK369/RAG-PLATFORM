@@ -80,3 +80,6 @@ hybrid	76% (34/45)	96% (43/45)	0.83
 hybrid + rerank	91% (41/45)	100% (45/45)	0.95
 
 I compared vector, hybrid and hybrid plus rerank on 45 questions. Reranking gave the biggest gain: hit@1 went from about 80% to 91%, and MRR from about 0.84 to 0.95. Hybrid alone didn't beat vector overall, but it missed different questions, which is why it's a good candidate pool for the reranker. The sample is small, so I treat the differences as directional.
+
+Limitations: 
+small sample, substring-based relevance check, single run.

@@ -1,0 +1,17 @@
+
+fastapi==0.165.0
+uvicorn==0.54.0
+python-multipart==0.0.34
+python-dotenv==1.2.4
+sentence-transformers==6.3.0
+qdrant-client==1.20.0
+rank-bm25==0.2.2
+cohere==7.3.2
+groq==1.7.0
+langsmith==0.16.0
+llama-index-core==0.14.26
+llama-index-readers-file==0.8.0
+pypdf==6.21.4
+docx2txt==0.9
+ragas==0.4.4
+openai==1.109.1

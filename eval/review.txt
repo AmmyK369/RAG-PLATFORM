@@ -1,0 +1,38 @@
+ANSWERABLE but marked incorrect (14)
+
+sq1-c
+sq2-but
+sq3-a- and not worded incoorectly it was right
+sq4- int his gold ha option 66 million twice and 515 million once and the answer given is roughly 65-66 million yr ago
+
+sq6 -a and is 100% correct
+sq9 - A 100 % correct
+sq11 - b
+sq21 - A and is correct
+sq22- c
+sq23- A
+sq25-a
+sq26-A and detailed explantion i like it
+sq29 - -A
+c02 - A 100%correct
+
+UNANSWERABLE but the system answered (7)
+
+su0 - b
+su1 - b
+su2 -[su2] Q: What year were citizens or corporations said to have been able to bring claims against other non state parties?
+   ANSWER: The documents state that in 1986 citizens or corporations were said to **not** be allowed to bring claims against other non‑state parties. [1]
+
+su3 -[su3] Q: What was the first Internet2 Network created with NLR?
+   ANSWER: The first Internet2 Network was called **Abilene**【1】.
+   answer i found inthe text: The Internet2 community, in partnership with Qwest, built the first Internet2 Network, called Abilene, in 1998 and was a prime investor in the National LambdaRail (NLR) project
+
+su7  Q: What was the unimportance of the congress?
+   ANSWER: The congress was unimportant because its plan was never ratified by the colonial legislatures nor approved by the crown. [1]
+   FILES: ['1973_oil_crisis.txt', 'French_and_Indian_War.txt', 'Warsaw.txt']
+
+   so here congress is mentioned in all3 texts but it answered acording to the warsaw text in context of congress of Vienna
+
+
+su8 - b
+su 11- b

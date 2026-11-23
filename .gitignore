@@ -4,3 +4,4 @@ venv/
 data/squad/
 feedback.jsonl
 data/uploads/
+venv-eval
