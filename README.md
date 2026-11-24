@@ -55,8 +55,8 @@ The frontend is a React-based conversational interface with three user experienc
 | View permitted source references | View permitted source references | Assign document access roles |
 
 **Application screenshots**
-![Application Screenshot](docs/images/Screenshot(1198).png)
-![Application Screenshot](docs/images/Screenshot(1199).png)
+![Application Screenshot](data/images/Screenshot (1198).png)
+![Application Screenshot](data/images/Screenshot (1199).png)
 
 
 | Login experience | Chat interface | Admin upload |
