@@ -54,9 +54,13 @@ The frontend is a React-based conversational interface with three user experienc
 | Ask everyday workplace questions | Access engineering and security knowledge | Ask questions and upload documents |
 | View permitted source references | View permitted source references | Assign document access roles |
 
-**Application screenshots**
-![Application Screenshot](RAG-PLATFORM/data/images/Screenshot (1198).png)
-![Application Screenshot](RAG-PLATFORM/data/images/Screenshot (1199).png)
+## Application Screenshots
+
+### Screenshot 1 – RAG Application
+![RAG Application](data/images/Screenshot%20(1198).png)
+
+### Screenshot 2 – RAG Application Output
+![RAG Application](data/images/Screenshot%20(1199).png)
 
 
 | Login experience | Chat interface | Admin upload |
